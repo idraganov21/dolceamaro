@@ -1,0 +1,129 @@
+.navbar {
+    background-image: url('/brickwall.png');
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 120px;
+  }
+
+  .logo {
+    margin-right: 50px;
+  }
+
+  .logo img {
+    width: 250px;
+  }
+
+  .socialIcon {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .navMenu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navItem {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navItem:hover {
+    color: #000;
+  }
+  
+  .contactInfo {
+    color: #000;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topBar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+  
+  .topBar .contactInfo {
+    color: white;
+  }
+
+  .topBar .socialIcons {
+    display: flex;
+    gap: 10px;
+    color: white;
+  }
+
+  .topBar .socialIcons a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .topBar .socialIcons a:hover {
+    color: red;
+  }
+
+  /* Хамбургер и мобилно меню */
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .mobileMenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .mobileMenu.active {
+    display: flex;
+  }
+
+  .mobileMenu .navItem {
+    color: #fff;
+    margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    .navMenu {
+      display: none; /* Скрива се навигацията за мобилни */
+    }
+  
+    .hamburger {
+      display: block; /* Показва иконата за хамбургер меню на мобилни устройства */
+    }
+
+    .logo img {
+      width: 180px; /* Умаляване на логото на мобилни */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo img {
+      width: 150px;
+    }
+  
+    .navItem {
+      font-size: 14px;
+    }
+  }
