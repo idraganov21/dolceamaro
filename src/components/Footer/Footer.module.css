@@ -1,0 +1,24 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 14px;
+    height: 2.5rem;
+  }
+
+  .copyright {
+    color: #fff;
+  }
+
+  .poweredBy a {
+    color: #ff0000;
+    text-decoration: none;
+  }
+
+  .poweredBy a:hover {
+    color: #ff4a4a;
+    text-decoration: underline;
+  }

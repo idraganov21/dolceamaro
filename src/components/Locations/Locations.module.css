@@ -1,0 +1,55 @@
+.locationsSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f4f4f9;
+  }
+  
+  .locationBox {
+    width: 45%;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .locationBox:hover {
+    transform: translateY(-10px);
+  }
+  
+  .locationContent {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .locationContent h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .locationContent a {
+    color: #fff;
+    background-color: #ff6b6b;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .locationContent a:hover {
+    background-color: #ff4a4a;
+  }
+  
+  .locationBox:nth-child(1) {
+    background-image: url('/garden.png');
+  }
+  
+  .locationBox:nth-child(2) {
+    background-image: url('/port.png');
+  }
+  
