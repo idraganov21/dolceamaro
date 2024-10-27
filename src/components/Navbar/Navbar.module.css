@@ -123,6 +123,10 @@
     display: none;
   }
 
+  .navContent {
+    width:auto
+  }
+
   .hamburger {
     display: block;
   }
