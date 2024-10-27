@@ -9,7 +9,7 @@ import off5 from '/off5.png';
 const Offers = () => {
   const offers = [off1, off2, off3, off4, off5];
   const [startIndex, setStartIndex] = useState(0);
-  const itemsToShow = 4; // Броят на елементите, които да се показват
+  const itemsToShow = 3;
 
   const handleNext = () => {
     setStartIndex((prevIndex) =>
@@ -23,7 +23,6 @@ const Offers = () => {
     );
   };
 
-  // Функция за взимане на показаните елементи
   const getVisibleOffers = () => {
     const endIndex = startIndex + itemsToShow;
     return offers.slice(startIndex, endIndex).concat(
@@ -35,7 +34,7 @@ const Offers = () => {
     <section className={styles.offersSection}>
       <div className={styles.titleContainer}>
         <div className={styles.line}></div>
-        <h2>Предложения</h2>
+        <h2>Събития и специални оферти</h2>
         <div className={styles.line}></div>
       </div>
       <div className={styles.carouselContainer}>

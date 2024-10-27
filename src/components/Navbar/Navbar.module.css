@@ -1,6 +1,17 @@
 .navbar {
   background-image: url("/brickwall.png");
   color: #000;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 120px; */
+}
+
+.navContent {
+  width: 1550px;
+  margin: 0 auto;
+  color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,7 +87,6 @@
   color: red;
 }
 
-/* Хамбургер и мобилно меню */
 .hamburger {
   display: none;
   font-size: 24px;
@@ -88,7 +98,7 @@
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 80px;
+  top: 60px;
   right: 0;
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -106,19 +116,28 @@
 }
 
 @media (max-width: 768px) {
-  .topBar {
+  /* .topBar {
     width: 100%;
-  }
+  } */
   .navMenu {
-    display: none; /* Скрива се навигацията за мобилни */
+    display: none;
   }
 
   .hamburger {
-    display: block; /* Показва иконата за хамбургер меню на мобилни устройства */
+    display: block;
   }
 
   .logo img {
-    width: 180px; /* Умаляване на логото на мобилни */
+    width: 180px;
+  }
+
+  .closeButton {
+    appearance: none;
+    color: white;
+    background: none;
+    width: 20%;
+    margin-left: auto;
+    border: none;
   }
 }
 
@@ -127,9 +146,9 @@
     width: 150px;
   }
 
-  .topBar {
+  /* .topBar {
     width: 100%;
-  }
+  } */
 
   .navItem {
     font-size: 14px;
