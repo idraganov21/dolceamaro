@@ -28,27 +28,30 @@ const Navbar = () => {
             </div>
 
             <nav className={styles.navbar}>
-                <div className={styles.navMenu}>
-                    <a href="https://www.garden.dolceamaro.bg" className={styles.navItem}>Морска Градина</a>
-                    <a href="#" className={styles.navItem}>Морска Гара</a>
-                </div>
-                <div className={styles.logo}>
-                    <img src={logo} alt="logo" />
-                </div>
-                <div className={styles.navMenu}>
-                <a href="#" className={styles.navItem}>Меню</a>
-                <a href="#" className={styles.navItem}>Събития</a>
-                </div>
+                <div className={styles.navContent}>
+                    <div className={styles.navMenu}>
+                        <a href="https://www.garden.dolceamaro.bg" className={styles.navItem}>Морска Градина</a>
+                        <a href="#" className={styles.navItem}>Морска Гара</a>
+                    </div>
+                    <div className={styles.logo}>
+                        <img src={logo} alt="logo" />
+                    </div>
+                    <div className={styles.navMenu}>
+                        <a href="https://dolceamaro.bg/%d0%b4%d0%be%d1%81%d1%82%d0%b0%d0%b2%d0%ba%d0%b0/" className={styles.navItem}>Меню</a>
+                        <a href="https://dolceamaro.bg/%d0%bd%d0%be%d0%b2%d0%b8%d0%bd%d0%b8-dolce-amaro/" className={styles.navItem}>Събития</a>
+                    </div>
 
-                <div className={styles.hamburger} onClick={toggleMenu}>
-                    <FaBars color="black" />
-                </div>
+                    <div className={styles.hamburger} onClick={toggleMenu}>
+                        <FaBars color="black" />
+                    </div>
 
-                <div className={`${styles.mobileMenu} ${menuOpen ? styles.active : ''}`}>
-                    <a href="#" className={styles.navItem}>Морска Градина</a>
-                    <a href="#" className={styles.navItem}>Морска Гара</a>
-                    <a href="#" className={styles.navItem}>Меню</a>
-                    <a href="#" className={styles.navItem}>Събития</a>
+                    <div className={`${styles.mobileMenu} ${menuOpen ? styles.active : ''}`}>
+                        <button className={styles.closeButton} onClick={toggleMenu}>X</button>
+                        <a href="#" className={styles.navItem}>Морска Градина</a>
+                        <a href="#" className={styles.navItem}>Морска Гара</a>
+                        <a href="#" className={styles.navItem}>Меню</a>
+                        <a href="#" className={styles.navItem}>Събития</a>
+                    </div>
                 </div>
             </nav>
         </>
