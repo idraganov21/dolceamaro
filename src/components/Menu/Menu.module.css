@@ -1,0 +1,201 @@
+.menuSection {
+    background-color: #171819;
+    padding: 50px 0;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+  }
+
+  .an3 {
+    position: absolute;
+    animation: floatUpDown 4s ease-in-out infinite;
+    z-index: 0;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .an4 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    animation: floatUpDown 4s ease-in-out infinite;
+  }
+
+  @keyframes floatUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .menuTitle {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .categoryFilters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto 25px;
+    border-bottom: 1px solid #ccc;
+    width: 50%;
+    padding: 15px;
+    position: relative;
+  }
+
+  .categoryButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .categoryButton:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ccc;
+  }
+
+  .categoryButton.active {
+    color: #fff;
+  }
+
+  .categoryButton:hover {
+    color: #fff;
+  }
+
+  .menuItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+    align-items: start;
+  }
+
+  .menuItems::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 0.5px);
+    width: 1px;
+    height: 100%;
+    background-color: #ccc;
+    z-index: 1;
+    display: block;
+  }
+
+  .menuItem {
+    display: flex;
+    align-items: center;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+  }
+
+  .categoryButton::before {
+    border: 1px solid var(--main-color);
+    content: "";
+    height: 8px;
+    left: 100%;
+    margin-left: 36px;
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 8px;
+  }
+
+  .menuImage {
+    border-radius: 10px;
+    display: block;
+    height: 150px;
+    position: relative;
+    transition: all 0.5s ease;
+    width: 200px;
+  }
+
+  .menuText {
+    font-size: 18px;
+    color: #fff;
+    margin-left: 15px;
+  }
+
+  /* Мобилна версия */
+  @media (max-width: 768px) {
+    .menuSection {
+      padding: 20px 0;
+      height: auto;
+    }
+
+    .menuTitle {
+      font-size: 28px;
+    }
+
+    .categoryFilters {
+      flex-direction: column;
+      width: 80%;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .categoryButton {
+      padding: 8px 15px;
+      font-size: 18px;
+    }
+
+    .menuItems {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 90%;
+    }
+
+    .menuItems::before {
+      display: none;
+    }
+
+    .menuItem {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .menuImage {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .menuText {
+      font-size: 16px;
+      margin-left: 0;
+    }
+  }
+
