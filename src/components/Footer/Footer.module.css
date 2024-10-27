@@ -27,3 +27,9 @@
   color: #ff4a4a;
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .footerContent {
+    width: auto;
+  }
+}
