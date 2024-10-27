@@ -89,24 +89,47 @@
 }
 
 @media (max-width: 768px) {
+  .offersSection {
+    padding: 30px 0;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 90%;
+    max-width: 100%;
+  }
+
   .offerItems {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+  }
+
+  .offerItem {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .carouselContainer {
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+    position: relative;
+  }
+
+  /* Позициониране на стрелките под карусела */
+  .carouselArrows {
+    display: flex;
+    justify-content: center; /* Центрира стрелките */
+    margin-top: 20px; /* Добавя разстояние под карусела */
   }
 
   .arrow {
     font-size: 2rem;
-    position: relative;
-    left: 0;
-    right: 0;
-  }
-
-  .offerImage {
-    max-width: 100%;
-  }
-
-  .carouselContainer {
-    gap: 20px;
-    width: auto;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px; /* Разстояние между стрелките */
   }
 }
