@@ -14,13 +14,6 @@ const Navbar = () => {
     return (
         <header
             className={styles.header}
-            style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                height: '850px',
-                width: '100%'
-            }}
         >
             <nav className={styles.navbar}>
                 <div className={styles.navContent}>
