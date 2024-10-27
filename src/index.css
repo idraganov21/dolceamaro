@@ -4,9 +4,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('/stones.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-image: url('/stones.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  background-color: #1B1B1B;
   min-height: 100vh;
 }

@@ -5,6 +5,8 @@ import off2 from '/off2.jpg';
 import off3 from '/off3.png';
 import off4 from '/off4.png';
 import off5 from '/off5.png';
+import an1 from '/an1.png';
+import an2 from '/an2.png';
 
 const Offers = () => {
     const offers = [off1, off2, off3, off4, off5];
@@ -13,25 +15,31 @@ const Offers = () => {
 
     const handleNext = () => {
         setStartIndex((prevIndex) =>
-            prevIndex + itemsToShow >= offers.length ? 0 : prevIndex + 1
+            (prevIndex + 1) % offers.length
         );
     };
 
     const handlePrev = () => {
         setStartIndex((prevIndex) =>
-            prevIndex === 0 ? offers.length - itemsToShow : prevIndex - 1
+            (prevIndex - 1 + offers.length) % offers.length
         );
     };
 
     const getVisibleOffers = () => {
         const endIndex = startIndex + itemsToShow;
-        return offers.slice(startIndex, endIndex).concat(
-            endIndex > offers.length ? offers.slice(0, endIndex - offers.length) : []
-        );
+        const visibleOffers = offers.slice(startIndex, endIndex);
+        if (endIndex > offers.length) {
+            visibleOffers.push(...offers.slice(0, endIndex - offers.length));
+        }
+        return visibleOffers;
     };
 
     return (
         <section className={styles.offersSection}>
+            {/* Добавяме анимираните изображения */}
+            <img src={an1} alt="Image 1" className={styles.an1} />
+            <img src={an2} alt="Image 2" className={styles.an2} />
+
             <div className={styles.titleContainer}>
                 <div className={styles.line}></div>
                 <h2>Събития и специални оферти</h2>
@@ -57,7 +65,7 @@ const Offers = () => {
             </div>
         </section>
     );
-
 };
 
 export default Offers;
+
