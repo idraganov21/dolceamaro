@@ -23,10 +23,10 @@ const Navbar = () => {
                     <div className={styles.rightSection}>
                         {/* Линкове за десктоп */}
                         <div className={styles.desktopMenu}>
-                            <a href="#" className={styles.navItem}>Морска Градина</a>
-                            <a href="#" className={styles.navItem}>Морска Гара</a>
-                            <a href="#" className={styles.navItem}>Меню</a>
-                            <a href="#" className={styles.navItem}>Събития</a>
+                            {/* <a href="#" className={styles.navItem}>Морска Градина</a> */}
+                            <a href="#" className={styles.navItem}>Ресторанти</a>
+                            <a href="https://www.dolceamaro.bg/доставка" className={styles.navItem}>Поръчай</a>
+                            <a href="#" className={styles.navItem}>Контакти</a>
                         </div>
                         {/* Социални икони */}
                         <div className={styles.socialIcons}>
