@@ -8,11 +8,32 @@
   /* background-color: #f4f4f9; */
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  flex-direction: row-reverse;
 }
 
 .sectionImg {
+  width: 850px;
+  filter: brightness(0.9);
+  margin-bottom: 100px;
+  margin-top: 50px;
+  display: block;
+}
+
+.imageWrapper {
+  position: relative;
   width: 95%;
-  filter: brightness(0.5);
+  margin: 0 auto;
+}
+
+.overlayImg {
+  position: absolute;
+  filter: brightness(0.7);
+  bottom: -40px;
+  left: -50px;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .locationBox {
@@ -23,12 +44,13 @@
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  margin-right: 150px;
+  margin-left: 150px;
 }
 .fLocationBox {
   width: 100vw;
   /* height: 100vh; */
-  position: relative;
+  /* position: relative; */
+  margin-left: 150px;
 }
 
 .locationContent {
@@ -60,7 +82,30 @@
 }
 
 .orderTitle {
+  position: relative;
   font-size: 32px;
+  color: #fff;
+  text-align: center;
+}
+
+.orderTitle::before,
+.orderTitle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.orderTitle::before {
+  left: -40px;
+  transform: translateY(-50%);
+}
+
+.orderTitle::after {
+  right: -40px;
+  transform: translateY(-50%);
 }
 
 .loc {
@@ -108,7 +153,7 @@
   z-index: 1001;
   width: 80vw;
   max-width: 1200px;
-  background-image: url('/an1.png');
+  background-image: url("/an1.png");
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -192,5 +237,16 @@
 
   .locationBox {
     margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+  .imageWrapper {
+    margin: 0;
+    width: 70%;
+  }
+
+  .desc {
+    font-size: 20px;
+    margin-top: 10px;
   }
 }
