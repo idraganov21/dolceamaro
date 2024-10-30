@@ -1,23 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Locations.module.css';
+import locationImage from '/locationn.jpg';
+import loc from '/loc.png';
+import img1 from '/garden.png';
+import img2 from '/seaport.png';
 
 const Locations = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <section className={styles.locationsSection}>
-      <div className={styles.locationBox}>
-        <div className={styles.locationContent}>
-          <h2>Dolce Amaro Морска Градина</h2>
-          <a href="https://garden.dolceamaro.bg" target="_blank" rel="noopener noreferrer">Виж повече</a>
-        </div>
+      <div className={styles.fLocationBox}>
+        <img src={locationImage} className={styles.sectionImg} alt="dolce amaro" />
       </div>
       <div className={styles.locationBox}>
         <div className={styles.locationContent}>
-          <h2>Dolce Amaro Морска Гара</h2>
-          <a href="https://seaport.dolceamaro.bg" target="_blank" rel="noopener noreferrer">Виж повече</a>
+          <div className={styles.order}>
+            <img src={loc} alt="dolce amaro" className={styles.loc} />
+            <p className={styles.orderTitle}>Доставка</p>
+          </div>
+          <p className={styles.desc}>
+            ⭐ Ресторанти Dolce Amaro доставят <br />
+            прясно приготвена и изключително вкусна храна до дома или офиса в град Варна!
+          </p>
+          <button className={styles.btn} onClick={openModal}>
+            Поръчай
+          </button>
         </div>
       </div>
+
+      {/* Модалният прозорец */}
+      {showModal && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <p className={styles.modalTitle}>Доставки до дома и офиса!</p>
+            <div className={styles.modalImages}>
+              <div className={styles.modalItem}>
+                <img src={img1} alt="image1" className={styles.modalImage} />
+                <div>
+                  <button className={styles.btn} onClick={() => window.location.href = 'https://www.dolceamaro.bg/доставка'}>
+                    Поръчай
+                  </button>
+                </div>
+              </div>
+              <div className={styles.modalItem}>
+                <img src={img2} alt="image2" className={styles.modalImage} />
+                <div>
+                  <button className={styles.btn} onClick={() => window.location.href = '#'}>
+                    Поръчай
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
 export default Locations;
+
