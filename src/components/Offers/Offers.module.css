@@ -128,7 +128,7 @@
     flex-direction: column;
     gap: 24px;
     margin: 0 auto;
-    height: autо;
+    height: 100%;
   }
 
   .offerItems {
