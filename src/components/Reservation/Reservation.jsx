@@ -74,6 +74,7 @@ const Reservations = () => {
                             </form>
                         </div>
                         <div className={styles.modalRight}>
+                            <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
                             <h3 className={styles.contactsTitle}>Свържете се с нас</h3>
                             <div className={styles.contacts}>
                                 <h1 className={styles.contactsTitle}>Dolce Amaro Garden</h1>
@@ -82,14 +83,12 @@ const Reservations = () => {
                                 <p>Работно време: 11:00 - 00:00</p>
                             </div>
                             <div className={styles.contacts}>
-                            <h1 className={styles.contactsTitle}>Dolce Amaro Seaport</h1>
+                                <h1 className={styles.contactsTitle}>Dolce Amaro Seaport</h1>
                                 <p>Телефон: 087 762 2607</p>
                                 <p>Адрес: Морска Гара</p>
                                 <p>Работно време: 11:00 - 00:00</p>
                             </div>
-                        </div>
-                        <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
-                    </div>
+                        </div>                    </div>
                 </div>
             )}
         </section>
