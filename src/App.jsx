@@ -16,7 +16,7 @@ function App() {
         <Locations />
         <Reservation />
         <Offers />
-        <Menu />
+        {/* <Menu /> */}
       </div>
       <Footer />
     </>
