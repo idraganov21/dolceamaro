@@ -5,11 +5,12 @@ import off2 from '/off2.jpg';
 import off3 from '/off3.png';
 import off4 from '/off4.png';
 import off5 from '/off5.png';
+import off6 from '/off6.png';
 import an1 from '/an1.png';
 import an2 from '/an2.png';
 
 const Offers = () => {
-    const offers = [off1, off2, off3, off4, off5];
+    const offers = [off6, off1, off2, off3, off4, off5];
     const [startIndex, setStartIndex] = useState(0);
     const itemsToShow = 3;
 
@@ -36,13 +37,12 @@ const Offers = () => {
 
     return (
         <section className={styles.offersSection}>
-            {/* Добавяме анимираните изображения */}
             <img src={an1} alt="Image 1" className={styles.an1} />
             <img src={an2} alt="Image 2" className={styles.an2} />
 
             <div className={styles.titleContainer}>
                 <div className={styles.line}></div>
-                <h2>Събития и специални оферти</h2>
+                <h2>Новини</h2>
                 <div className={styles.line}></div>
             </div>
             <div className={styles.carouselContainer}>
