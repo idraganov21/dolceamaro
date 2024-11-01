@@ -193,4 +193,77 @@
   .locationBox {
     margin: 0 auto;
   }
+
+  .modalImages {
+    flex-direction: column;
+  }
+
+  .modalImage {
+    width: 250px;
+    height: 250px;
+  }
+
+  .modalItem {
+    margin-bottom: 20px;
+  }
+
+  .modalContent {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  .modalLeft {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .modalRight {
+    width: 100%;
+    padding: 20px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .reservationForm label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .reservationForm input,
+  .reservationForm textarea,
+  .reservationForm select {
+    width: 100%;
+    max-width: 100%;
+    height: 48px;
+    margin-bottom: 10px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .contactsTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .contacts {
+    text-align: center;
+    color: #a7a7a7;
+    font-size: 16px;
+  }
+
+  .closeModalBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
 }
