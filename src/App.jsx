@@ -6,6 +6,7 @@ import Reservation from './components/Reservation/Reservation'
 import Offers from './components/Offers/Offers'
 import Footer from './components/Footer/Footer'
 import Gift from './components/Gift/Gift'
+import Kids from './components/Kids/Kids'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         </div>
         <Offers />
         <Gift />
+        <Kids />
       </div>
       <Footer />
     </>

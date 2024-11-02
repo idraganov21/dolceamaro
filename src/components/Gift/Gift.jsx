@@ -13,6 +13,7 @@ function Gift() {
                     <img src={giftCard} className={styles.sectionImg} alt="Dolce Amaro" />
                 </div>
                 <div className={styles.locationBox}>
+                    <h1>За любимите хора</h1>
                     <div className={styles.locationContent}>
                         <p className={styles.desc}>
                             Подарете незабравимо изживяване на вашите близки! <br /> С този ваучер те могат да се насладят на специално подбрани ястия и напитки в нашите два обекта — Dolce Amaro Морска Гара и Dolce Amaro Морска Градина.
