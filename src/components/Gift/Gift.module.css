@@ -1,0 +1,110 @@
+.section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  flex-direction: row-reverse;
+  height: 100vh;
+  color: #ccc;
+}
+
+.sectionImg {
+  width: 550px;
+  filter: brightness(0.9);
+  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-right: 50px;
+  display: block;
+  box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.3),
+    inset 0px 0px 15px rgba(255, 255, 255, 0.2);
+  transform: perspective(800px) rotateX(10deg) rotateY(-5deg) scale(1.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sectionImg:hover {
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.1);
+  box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.4),
+    inset 0px 0px 20px rgba(255, 255, 255, 0.3);
+}
+
+.sectionBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: #0D0D0C;
+    max-width: 1350px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    align-items: center;
+}
+
+.desc {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+.an1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 250px;
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.an2 {
+  position: absolute;
+  left: 10px;
+  width: 150px;
+  animation: floatUpDown 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      display: flex;
+      gap: 24px;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .sectionBox {
+        flex-direction: column;
+    }
+
+    .sectionImg {
+      width: 100%;
+    }
+
+    .locationBox {
+      margin: 0 auto;
+      margin-bottom: 60px;
+    }
+
+    .imageWrapper {
+      margin: 0;
+      width: 70%;
+    }
+
+    .desc {
+      font-size: 20px;
+      margin-top: 10px;
+      z-index: 9999;
+      position: relative;
+    }
+  }
