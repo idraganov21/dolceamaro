@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import styles from './Navbar.module.css';
 import logo from '/dalogo.png';
-import backgroundImage from '/background.jpg';
-import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaBars } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaBars } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import img1 from '/garden.png';
+import img2 from '/seaport.png';
 
-const Navbar = () => {
+const Navbar = ({ scrollToReservation }) => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -18,38 +30,73 @@ const Navbar = () => {
             <nav className={styles.navbar}>
                 <div className={styles.navContent}>
                     <div className={styles.leftSection}>
+                        <div className={styles.desktopMenu}>
+                            <a onClick={scrollToReservation} className={styles.navItem}>Контакти</a>
+                            <a onClick={scrollToReservation} className={styles.navItem}>За нас</a>
+                        </div>
+                    </div>
+                    <div className={styles.middleSection}>
                         <img src={logo} alt="logo" className={styles.logo} />
                     </div>
                     <div className={styles.rightSection}>
-                        {/* Линкове за десктоп */}
                         <div className={styles.desktopMenu}>
-                            {/* <a href="#" className={styles.navItem}>Морска Градина</a> */}
-                            <a href="#" className={styles.navItem}>Ресторанти</a>
-                            <a href="https://www.dolceamaro.bg/доставка" className={styles.navItem}>Поръчай</a>
-                            <a href="#" className={styles.navItem}>Контакти</a>
+                            <div className={styles.orderFood}>
+                                <a onClick={openModal} className={styles.navItem}>
+                                    <FontAwesomeIcon icon={faTruck} className={styles.icon} /> Поръчай храна
+                                </a>
+                            </div>
+                            <a onClick={scrollToReservation} className={styles.navItem}>Резервирай</a>
+                            {showModal && (
+                                <div className={styles.modalOverlay} onClick={closeModal}>
+                                    <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                                        <p className={styles.modalTitle}>Доставки до дома и офиса!</p>
+                                        <div className={styles.modalImages}>
+                                            <div className={styles.modalItem}>
+                                                <img src={img1} alt="image1" className={styles.modalImage} />
+                                                <div>
+                                                    <button className={styles.btn} onClick={() => window.location.href = 'https://www.dolceamaro.bg/доставка'}>
+                                                        Поръчай
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div className={styles.modalItem}>
+                                                <img src={img2} alt="image2" className={styles.modalImage} />
+                                                <div>
+                                                    <button className={styles.btn} onClick={() => window.location.href = '#'}>
+                                                        Поръчай
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
+                                    </div>
+                                </div>
+                            )}
+                            {/* <a href="#" className={styles.navItem}>Контакти</a> */}
                         </div>
-                        {/* Социални икони */}
                         <div className={styles.socialIcons}>
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                                <FaFacebook className={styles.socialIcon} />
+                                <FaFacebook size={20} className={styles.socialIcon} />
                             </a>
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                                <FaInstagram className={styles.socialIcon} />
+                                <FaInstagram size={20} className={styles.socialIcon} />
                             </a>
                         </div>
 
-                        {/* Бургер икона за мобилни устройства */}
                         <div className={styles.hamburger} onClick={toggleMenu}>
                             <FaBars color="white" />
                         </div>
 
-                        {/* Мобилно меню */}
                         <div className={`${styles.mobileMenu} ${menuOpen ? styles.active : ''}`}>
                             <button className={styles.closeButton} onClick={toggleMenu}>X</button>
-                            <a href="#" className={styles.navItem}>Морска Градина</a>
-                            <a href="#" className={styles.navItem}>Морска Гара</a>
-                            <a href="#" className={styles.navItem}>Меню</a>
-                            <a href="#" className={styles.navItem}>Събития</a>
+                            <div className={styles.orderFood}>
+                                <a onClick={openModal} className={styles.navItem}>
+                                    <FontAwesomeIcon icon={faTruck} className={styles.icon} /> Поръчай храна
+                                </a>
+                            </div>
+                            <a onClick={scrollToReservation} className={styles.navItem}>Резервирай</a>
+                            <a onClick={scrollToReservation} className={styles.navItem}>Контакти</a>
+                            <a onClick={scrollToReservation} className={styles.navItem}>За нас</a>
                         </div>
                     </div>
                 </div>
@@ -59,6 +106,7 @@ const Navbar = () => {
                 <p className={styles.slogan}>Добрият вкус е винаги на мода!</p>
             </div>
         </header>
+
     );
 };
 

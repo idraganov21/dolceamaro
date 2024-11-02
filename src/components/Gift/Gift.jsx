@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './Gift.module.css';
 import giftCard from '/giftCard.png';
-import an1 from '/an1.png';
 import an2 from '/an2.png';
 
 
