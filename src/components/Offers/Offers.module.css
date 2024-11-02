@@ -108,16 +108,22 @@
 }
 
 .offerButton {
-  color: #000;
-  background-color: #ccc;
+  color: #ccc;
+  background-color: none;
   padding: 10px 20px;
+  background: none;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 25px;
   transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
 .offerButton:hover {
-  background-color: #333;
+  color: #000;
+  background-color: #ccc;
 }
 
 @media (max-width: 768px) {
