@@ -118,16 +118,22 @@
 }
 
 .btn {
-  color: #000;
-  background-color: #ccc;
+  color: #ccc;
+  background-color: none;
   padding: 10px 20px;
+  background: none;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 25px;
   transition: background-color 0.3s ease;
   appearance: none;
-  border: none;
+  border: 1px solid #ccc;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #ccc;
 }
 
 .modalOverlay {
@@ -325,13 +331,22 @@
 }
 
 .submitBtn {
+  color: #ccc;
+  background-color: none;
+  padding: 10px 20px;
+  background: none;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
   margin-top: 20px;
-  padding: 10px;
-  background-color: #ccc;
-  color: #000;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+}
+
+.submitBtn:hover {
+  color: #000;
+  background-color: #ccc;
 }
 
 .contactsTitle {
@@ -349,12 +364,22 @@
 }
 
 .closeModalBtn {
-  background: #ccc;
-  padding: 5px 10px;
-  width: 25%;
-  margin-left: auto;
-  border: none;
+  color: #ccc;
+  background-color: none;
+  padding: 10px 20px;
+  background: none;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
+  margin-top: 20px;
   cursor: pointer;
+}
+
+.closeModalBtn:hover {
+  color: #000;
+  background-color: #ccc;
 }
 
 .formRow {
