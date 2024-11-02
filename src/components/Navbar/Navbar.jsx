@@ -7,7 +7,7 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import img1 from '/garden.png';
 import img2 from '/seaport.png';
 
-const Navbar = ({ scrollToReservation }) => {
+const Navbar = ({ scrollToReservation, scrollToOrder }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -90,7 +90,7 @@ const Navbar = ({ scrollToReservation }) => {
                         <div className={`${styles.mobileMenu} ${menuOpen ? styles.active : ''}`}>
                             <button className={styles.closeButton} onClick={toggleMenu}>X</button>
                             <div className={styles.orderFood}>
-                                <a onClick={openModal} className={styles.navItem}>
+                                <a onClick={scrollToOrder} className={styles.navItem}>
                                     <FontAwesomeIcon icon={faTruck} className={styles.icon} /> Поръчай храна
                                 </a>
                             </div>

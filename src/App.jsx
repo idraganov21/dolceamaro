@@ -10,16 +10,23 @@ import Gift from './components/Gift/Gift'
 function App() {
 
   const reservationRef = useRef(null);
+  const orderRef = useRef(null);
 
   const scrollToReservation = () => {
     reservationRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToOrder = () => {
+    orderRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-      <Navbar scrollToReservation={scrollToReservation} />
+      <Navbar scrollToReservation={scrollToReservation} scrollToOrder={scrollToOrder} />
       <div className="main-content">
-        <Locations />
+        <div ref={orderRef}>
+          <Locations />
+        </div>
         <div ref={reservationRef}>
           <Reservation />
         </div>
