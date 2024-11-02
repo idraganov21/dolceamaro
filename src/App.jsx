@@ -5,7 +5,7 @@ import Locations from './components/Locations/Locations'
 import Reservation from './components/Reservation/Reservation'
 import Offers from './components/Offers/Offers'
 import Footer from './components/Footer/Footer'
-import Menu from './components/Menu/Menu'
+import Gift from './components/Gift/Gift'
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Locations />
         <Reservation />
         <Offers />
-        {/* <Menu /> */}
+        <Gift />
       </div>
       <Footer />
     </>
