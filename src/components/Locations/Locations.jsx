@@ -37,7 +37,6 @@ const Locations = () => {
         </div>
       </div>
 
-      {/* Модалният прозорец */}
       {showModal && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>

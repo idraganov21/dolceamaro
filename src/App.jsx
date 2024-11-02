@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Locations from './components/Locations/Locations'
@@ -9,12 +9,20 @@ import Gift from './components/Gift/Gift'
 
 function App() {
 
+  const reservationRef = useRef(null);
+
+  const scrollToReservation = () => {
+    reservationRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar scrollToReservation={scrollToReservation} />
       <div className="main-content">
         <Locations />
-        <Reservation />
+        <div ref={reservationRef}>
+          <Reservation />
+        </div>
         <Offers />
         <Gift />
       </div>
