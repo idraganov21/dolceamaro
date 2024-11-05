@@ -7,7 +7,7 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import img1 from '/garden.png';
 import img2 from '/seaport.png';
 
-const Navbar = ({ scrollToReservation, scrollToOrder }) => {
+const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -31,8 +31,9 @@ const Navbar = ({ scrollToReservation, scrollToOrder }) => {
                 <div className={styles.navContent}>
                     <div className={styles.leftSection}>
                         <div className={styles.desktopMenu}>
-                            <a onClick={scrollToReservation} className={styles.navItem}>Контакти</a>
-                            <a onClick={scrollToReservation} className={styles.navItem}>За нас</a>
+                            <a onClick={scrollToContacts} className={styles.navItem}>Контакти</a>
+                            {/* TODO make lunchmenu showing both restaurants and redirecting to the lunch menu */}
+                            <a onClick={scrollToReservation} className={styles.navItem}>Обедно меню</a>
                         </div>
                     </div>
                     <div className={styles.middleSection}>
@@ -96,7 +97,7 @@ const Navbar = ({ scrollToReservation, scrollToOrder }) => {
                             </div>
                             <a onClick={scrollToReservation} className={styles.navItem}>Резервирай</a>
                             <a onClick={scrollToReservation} className={styles.navItem}>Контакти</a>
-                            <a onClick={scrollToReservation} className={styles.navItem}>За нас</a>
+                            <a onClick={scrollToReservation} className={styles.navItem}>Обедно меню</a>
                         </div>
                     </div>
                 </div>
