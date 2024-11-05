@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Locations from './components/Locations/Locations'
@@ -8,11 +8,18 @@ import Footer from './components/Footer/Footer'
 import Gift from './components/Gift/Gift'
 import Kids from './components/Kids/Kids'
 import BottomBar from './components/Footer/BottomBar'
+import scroll from '/scroll.svg'
 
 function App() {
-
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
   const reservationRef = useRef(null);
   const orderRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
 
   const scrollToReservation = () => {
     reservationRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -22,9 +29,27 @@ function App() {
     orderRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToContacts = () => {
+    contactRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <Navbar scrollToReservation={scrollToReservation} scrollToOrder={scrollToOrder} />
+      <Navbar scrollToReservation={scrollToReservation} scrollToOrder={scrollToOrder} scrollToContacts={scrollToContacts} />
       <div className="main-content">
         <div ref={orderRef}>
           <Locations />
@@ -36,8 +61,15 @@ function App() {
         <Gift />
         <Kids />
       </div>
-      <Footer />
+      <div ref={contactRef}>
+        <Footer />
+      </div>
       <BottomBar />
+      {showScrollToTop && (
+        <button onClick={scrollToTop} className="scroll-to-top">
+          <img src={scroll} alt='Dolce Amaro scroll button' />
+        </button>
+      )}
     </>
   )
 }
