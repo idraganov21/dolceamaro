@@ -7,6 +7,7 @@ import Offers from './components/Offers/Offers'
 import Footer from './components/Footer/Footer'
 import Gift from './components/Gift/Gift'
 import Kids from './components/Kids/Kids'
+import BottomBar from './components/Footer/BottomBar'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Kids />
       </div>
       <Footer />
+      <BottomBar />
     </>
   )
 }
