@@ -1,21 +1,84 @@
 .footer {
-  color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.footerContent {
-  width: 1550px;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url("/background.jpg");
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  font-size: 14px;
-  height: 2.5rem;
+  color: #fff;
 }
 
-.copyright {
+.footerUpper {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.nearbyAttractions,
+.mapSection,
+.contactInfo {
+  padding: 20px;
   color: #fff;
+}
+
+.mapSection h4 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.nearbyAttractions h4,
+.contactInfo h4 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+}
+
+.nearbyAttractions ul,
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.nearbyAttractions ul li,
+.contactInfo ul li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.contactInfo,
+.nearbyAttractions {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mapSection iframe {
+  border: none;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.bottomBar {
+  width: 100%;
+  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .poweredBy a {
@@ -29,7 +92,52 @@
 }
 
 @media (max-width: 768px) {
-  .footerContent {
-    width: auto;
+  .footer {
+    height: 100%;
+    padding: 20px 10px;
+  }
+
+  .bottomBar {
+    font-size: 0.8rem;
+  }
+
+  .footerUpper {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 20px;
+  }
+
+  .nearbyAttractions,
+  .mapSection,
+  .contactInfo {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .nearbyAttractions h4,
+  .mapSection h4,
+  .contactInfo h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .mapSection iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .nearbyAttractions ul,
+  .contactInfo ul {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .nearbyAttractions ul li,
+  .contactInfo ul li {
+    margin: 5px 0;
+    justify-content: center;
   }
 }
