@@ -63,7 +63,7 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                                             <div className={styles.modalItem}>
                                                 <img src={img2} alt="image2" className={styles.modalImage} />
                                                 <div>
-                                                    <button className={styles.btn} onClick={() => window.location.href = '#'}>
+                                                    <button className={styles.btn} onClick={() => window.location.href = 'https://www.garden.dolceamaro.bg/'}>
                                                         Поръчай
                                                     </button>
                                                 </div>
