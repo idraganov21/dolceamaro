@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Offers.module.css';
-import off1 from '/off1.png';
-import off2 from '/off2.jpg';
-import off3 from '/off3.png';
-import off4 from '/off4.png';
-import off5 from '/off5.png';
-import off6 from '/off6.png';
-import an1 from '/an1.png';
-import an2 from '/an2.png';
 
 const Offers = () => {
-    const offers = [off6, off1, off2, off3, off4, off5];
+    const [offers, setOffers] = useState([]);
     const [startIndex, setStartIndex] = useState(0);
+    const navigate = useNavigate();
     const itemsToShow = 3;
 
+    useEffect(() => {
+        const fetchOffers = async () => {
+            try {
+                const response = await fetch('https://seaport.dolceamaro.bg/wp-json/wp/v2/posts?_embed');
+                const data = await response.json();
+                setOffers(data);
+            } catch (error) {
+                console.error('Error fetching offers:', error);
+            }
+        };
+        fetchOffers();
+    }, []);
+
     const handleNext = () => {
-        setStartIndex((prevIndex) =>
-            (prevIndex + 1) % offers.length
-        );
+        setStartIndex((prevIndex) => (prevIndex + 1) % offers.length);
     };
 
     const handlePrev = () => {
-        setStartIndex((prevIndex) =>
-            (prevIndex - 1 + offers.length) % offers.length
-        );
+        setStartIndex((prevIndex) => (prevIndex - 1 + offers.length) % offers.length);
     };
 
     const getVisibleOffers = () => {
@@ -37,9 +40,6 @@ const Offers = () => {
 
     return (
         <section className={styles.offersSection}>
-            <img src={an1} alt="Image 1" className={styles.an1} />
-            <img src={an2} alt="Image 2" className={styles.an2} />
-
             <div className={styles.titleContainer}>
                 <div className={styles.line}></div>
                 <h2>Новини</h2>
@@ -47,21 +47,28 @@ const Offers = () => {
             </div>
             <div className={styles.carouselContainer}>
                 <div className={styles.offerItems}>
-                    {getVisibleOffers().map((offer, index) => (
-                        <div key={index} className={styles.offerItem}>
-                            <img src={offer} alt={`Offer ${index + 1}`} className={styles.offerImage} />
-                            <a href="#" className={styles.offerButton}>Виж повече</a>
-                        </div>
-                    ))}
+                    {getVisibleOffers().map((offer) => {
+                        const media = offer._embedded?.['wp:featuredmedia']?.[0];
+                        const imageUrl = media?.source_url || '';
+
+                        return (
+                            <div key={offer.id} className={styles.offerItem}>
+                                <img src={imageUrl} alt={offer.title.rendered} className={styles.offerImage} />
+                                <h3 className={styles.offerTitle}>{offer.title.rendered}</h3>
+                                <button
+                                    onClick={() => navigate(`/post/${offer.id}`)}
+                                    className={styles.offerButton}
+                                >
+                                    Виж повече
+                                </button>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <div className={styles.carouselArrows}>
-                <button className={styles.arrow} onClick={handlePrev}>
-                    ←
-                </button>
-                <button className={styles.arrow} onClick={handleNext}>
-                    →
-                </button>
+                <button className={styles.arrow} onClick={handlePrev}>←</button>
+                <button className={styles.arrow} onClick={handleNext}>→</button>
             </div>
         </section>
     );
