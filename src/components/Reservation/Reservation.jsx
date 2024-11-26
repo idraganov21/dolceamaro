@@ -3,10 +3,14 @@ import { useForm, ValidationError } from '@formspree/react';
 import styles from './Reservation.module.css';
 import seaport from '/seaportres.jpg';
 import garden from '/gardenres.jpg';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Reservations = () => {
     const [showModal, setShowModal] = useState(false);
-    const [state, handleSubmit] = useForm("xeoqazdb");
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+    const [state, handleSubmit] = useForm(selectedRestaurant === "garden" ? "xeoqazdb" : "xgvenvag");
+    const [localNotification, setLocalNotification] = useState(null);
 
     const openModal = () => {
         setShowModal(true);
@@ -15,6 +19,21 @@ const Reservations = () => {
     const closeModal = () => {
         setShowModal(false);
     };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        try {
+            await handleSubmit(e);
+            form.reset();
+            setLocalNotification("Успешна резервация, благодарим Ви!");
+            setTimeout(() => setLocalNotification(null), 3000);
+        } catch (error) {
+            setLocalNotification("Грешка при резервацията. Моля, опитайте отново.");
+            setTimeout(() => setLocalNotification(null), 3000);
+        }
+    }
 
     return (
         <section className={styles.locationsSection}>
@@ -41,38 +60,59 @@ const Reservations = () => {
             {showModal && (
                 <div className={styles.modalOverlay} onClick={closeModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                        <div className={styles.modalLeft}>
-                            <h2 className={styles.modalTitle}>Резервирай маса</h2>
-                            <form className={styles.reservationForm} onSubmit={handleSubmit}>
-                                <div>
-                                    <label>
-                                        <input type="text" placeholder='Име и фамилия:' name="name" id="name" required />
-                                    </label>
-                                    <label>
-                                        <input type="email" placeholder='Имейл:' name="email" id="email" required />
-                                    </label>
+                        {selectedRestaurant === null ? (
+                            <div className={styles.modalChoice}>
+                                <h2 className={styles.modalTitle}>В кой ресторант желаете да направите резервация?</h2>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <button
+                                        className={styles.btn}
+                                        onClick={() => setSelectedRestaurant("garden")}
+                                    >
+                                        Dolce Amaro Garden
+                                    </button>
+                                    <button
+                                        className={styles.btn}
+                                        onClick={() => setSelectedRestaurant("seaport")}
+                                    >
+                                        Dolce Amaro Seaport
+                                    </button>
                                 </div>
-                                <div>
+                            </div>
+                        ) : (
+                            <div className={styles.modalLeft}>
+                                <h2 className={styles.modalTitle}>Резервирай маса</h2>
+                                <form className={styles.reservationForm} onSubmit={handleFormSubmit}>
+                                    <div>
+                                        <label>
+                                            <input type="text" placeholder="Име и фамилия:" name="name" id="name" required />
+                                        </label>
+                                        <label>
+                                            <input type="email" placeholder="Имейл:" name="email" id="email" required />
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="tel" placeholder="Телефонен номер:" name="phone" id="phone" required />
+                                        </label>
+                                        <label>
+                                            <input type="number" placeholder="Брой хора:" name="people" id="people" required />
+                                        </label>
+                                    </div>
                                     <label>
-                                        <input type="tel" placeholder='Телефонен номер:' name="phone" id="phone" required />
+                                        <textarea placeholder="Бележка:" name="note" id="note"></textarea>
                                     </label>
-                                    <label>
-                                        <input type="people" placeholder='Брой хора:' name="people" id="people" required />
-                                    </label>
-                                    <label>
-                                        <select name="location" id="location" required>
-                                            <option disabled>Изберете локация</option>
-                                            <option value="garden">Dolce Amaro Garden</option>
-                                            <option value="seaport">Dolce Amaro Seaport</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <label>
-                                    <textarea placeholder='Бележка:' name="note" id="note"></textarea>
-                                </label>
-                                <button type="submit" className={styles.submitBtn}>Резервирай</button>
-                            </form>
-                        </div>
+                                    <button type="submit" className={styles.submitBtn}>Резервирай</button>
+                                </form>
+                                {localNotification && (
+                                    <div className={styles.localNotification}>
+                                        {localNotification}
+                                    </div>
+                                )}
+                                <button className={styles.btn} onClick={() => setSelectedRestaurant(null)}>
+                                    Назад
+                                </button>
+                            </div>
+                        )}
                         <div className={styles.modalRight}>
                             <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
                             <h3 className={styles.contactsTitle}>Свържете се с нас</h3>
@@ -88,7 +128,8 @@ const Reservations = () => {
                                 <p>Адрес: Морска Гара</p>
                                 <p>Работно време: 11:00 - 00:00</p>
                             </div>
-                        </div>                    </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </section>

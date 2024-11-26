@@ -382,6 +382,31 @@
   background-color: #ccc;
 }
 
+.localNotification {
+  background-color: rgba(0, 128, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: center;
+  animation: fade-in-out 3s forwards;
+}
+
+@keyframes fade-in-out {
+  0% {
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
 .formRow {
   display: flex;
   flex-direction: row;
