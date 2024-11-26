@@ -10,6 +10,11 @@ import img2 from '/seaport.png';
 const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [isLunchMenuVisible, setIsLunchMenuVisible] = useState(false);
+
+    const toggleLunchMenu = () => {
+        setIsLunchMenuVisible(!isLunchMenuVisible);
+    };
 
     const openModal = () => {
         setShowModal(true);
@@ -32,8 +37,23 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                     <div className={styles.leftSection}>
                         <div className={styles.desktopMenu}>
                             <a onClick={scrollToContacts} className={styles.navItem}>Контакти</a>
-                            {/* TODO make lunchmenu showing both restaurants and redirecting to the lunch menu */}
-                            <a onClick={scrollToReservation} className={styles.navItem}>Обедно меню</a>
+                            <div className={styles.navItemWrapper}>
+                                <a
+                                    onClick={toggleLunchMenu}
+                                    className={styles.navItem}>
+                                    Обедно меню
+                                </a>
+                                {isLunchMenuVisible && (
+                                    <div className={styles.dropdownMenu}>
+                                        <a href="https://seaport.dolceamaro.bg" className={styles.dropdownItem}>
+                                            Обедно меню на Морска гара
+                                        </a>
+                                        <a href="https://garden.dolceamaro.bg" className={styles.dropdownItem}>
+                                            Обедно меню на Морска градина
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                     <div className={styles.middleSection}>
@@ -55,7 +75,7 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                                             <div className={styles.modalItem}>
                                                 <img src={img1} alt="image1" className={styles.modalImage} />
                                                 <div>
-                                                    <button className={styles.btn} onClick={() => window.location.href = 'https://www.dolceamaro.bg/доставка'}>
+                                                    <button className={styles.btn} onClick={() => window.location.href = 'https://www.seaport.dolceamaro.bg/'}>
                                                         Поръчай
                                                     </button>
                                                 </div>
@@ -97,7 +117,23 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                             </div>
                             <a onClick={scrollToReservation} className={styles.navItem}>Резервирай</a>
                             <a onClick={scrollToReservation} className={styles.navItem}>Контакти</a>
-                            <a onClick={scrollToReservation} className={styles.navItem}>Обедно меню</a>
+                            <div className={styles.navItemWrapper}>
+                                <a
+                                    onClick={toggleLunchMenu}
+                                    className={styles.navItem}>
+                                    Обедно меню
+                                </a>
+                                {isLunchMenuVisible && (
+                                    <div className={styles.dropdownMenu}>
+                                        <a href="https://seaport.dolceamaro.bg" className={styles.dropdownItem}>
+                                            Обедно меню на Морска гара
+                                        </a>
+                                        <a href="https://garden.dolceamaro.bg" className={styles.dropdownItem}>
+                                            Обедно меню на Морска градина
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
