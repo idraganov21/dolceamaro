@@ -1,0 +1,60 @@
+.section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    flex-direction: column;
+    height: 100vh;
+    color: #ccc;
+  }
+
+  .an1 {
+    width: 450px;
+  }
+  
+  .an2 {
+    width: 450px;
+  }
+
+  .images {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      display: flex;
+      gap: 24px;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .sectionBox {
+        flex-direction: column;
+    }
+
+    .sectionImg {
+      width: 100%;
+    }
+
+    .locationBox {
+      margin: 0 auto;
+      margin-bottom: 60px;
+    }
+
+    .imageWrapper {
+      margin: 0;
+      width: 70%;
+    }
+
+    .desc {
+      font-size: 20px;
+      margin-top: 10px;
+      z-index: 9999;
+      position: relative;
+    }
+  }

@@ -15,6 +15,7 @@ import './i18n'
 import AboutUs from './components/AboutUs/AboutUs';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import PrivateData from './components/TermsAndConditions/PrivateData';
+import Fond from './components/Fond/Fond';
 
 function App() {
     const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -67,7 +68,7 @@ function App() {
             )}
             <Routes>
                 {isPostDetailPage ? (
-            <><Route path="/terms" element={<TermsAndConditions />} /><Route path="/privatedata" element={<PrivateData />} /><Route path="/post/:id" element={<PostDetail onBack={() => navigate(-1)} />} /></>
+                    <><Route path="/terms" element={<TermsAndConditions />} /><Route path="/privatedata" element={<PrivateData />} /><Route path="/post/:id" element={<PostDetail onBack={() => navigate(-1)} />} /></>
                 ) : (
                     <Route path="/" element={
                         <div className="main-content">
@@ -81,6 +82,7 @@ function App() {
                             <Gift />
                             <Kids />
                             <AboutUs />
+                            <Fond />
                             <div ref={contactRef}>
                                 <Footer />
                             </div>
