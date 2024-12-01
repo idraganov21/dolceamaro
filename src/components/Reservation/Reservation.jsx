@@ -1,10 +1,10 @@
+import { useForm } from '@formspree/react';
 import React, { useState } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
-import styles from './Reservation.module.css';
-import seaport from '/seaportres.jpg';
-import garden from '/gardenres.jpg';
-import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from 'react-i18next';
+import 'react-toastify/dist/ReactToastify.css';
+import styles from './Reservation.module.css';
+import garden from '/gardenres.jpg';
+import seaport from '/seaportres.jpg';
 
 const Reservations = () => {
     const [showModal, setShowModal] = useState(false);

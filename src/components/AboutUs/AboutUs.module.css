@@ -1,0 +1,420 @@
+.locationsSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* padding: 50px 0; */
+  /* max-width: 1550px; */
+  /* margin: 0px auto 50px auto; */
+  /* background-color: #f4f4f9; */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  flex-direction: row-reverse;
+}
+
+.sectionImg {
+  width: 850px;
+  filter: brightness(0.9);
+  margin-bottom: 100px;
+  margin-top: 50px;
+  display: block;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.overlayImg {
+  position: absolute;
+  filter: brightness(0.7);
+  bottom: -40px;
+  left: -50px;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.locationBox {
+  width: 45%;
+  height: 400px;
+  position: relative;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-left: 150px;
+}
+.fLocationBox {
+  width: 100vw;
+  /* height: 100vh; */
+  /* position: relative; */
+  margin-left: 150px;
+}
+
+.locationContent {
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.locationContent h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.locationContent a {
+  color: #fff;
+  background-color: #ff6b6b;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.locationContent a:hover {
+  background-color: #ff4a4a;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.orderTitle {
+  position: relative;
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+}
+
+.orderTitle::before,
+.orderTitle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.orderTitle::before {
+  left: -40px;
+  transform: translateY(-50%);
+}
+
+.orderTitle::after {
+  right: -40px;
+  transform: translateY(-50%);
+}
+
+.loc {
+  animation: float 2s ease-in-out infinite;
+}
+
+.desc {
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+.btn {
+  color: #ccc;
+  background-color: none;
+  padding: 10px 20px;
+  background: none;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.galleryContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.galleryImage {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.prevBtn,
+.nextBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 86px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prevBtn {
+  left: 10px;
+}
+
+.nextBtn {
+  right: 10px;
+}
+
+.modalContent {
+  background: #000;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  /* padding: 20px; */
+  border-radius: 8px;
+  color: #fff;
+}
+
+.modalLeft {
+  /* flex: 1; */
+  padding: 40px;
+  width: 60%;
+}
+
+.modalRight {
+  flex: 1;
+  padding: 40px;
+  background: url("/pattern.png") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 50px;
+}
+
+.modalTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.reservationForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.reservationForm input,
+.reservationForm textarea,
+.reservationForm select {
+  width: 100%;
+  max-width: 320px;
+  height: 56px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #313132;
+  border-radius: 4px;
+  background-color: #1a1b1c;
+  color: #ccc;
+}
+
+.submitBtn {
+  color: #ccc;
+  background-color: none;
+  padding: 10px 20px;
+  background: none;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+.contactsTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contacts {
+  margin-bottom: 20px;
+  color: #a7a7a7;
+}
+
+.contactsTitle {
+  color: #fff;
+}
+
+.closeModalBtn {
+  color: #ccc;
+  background-color: none;
+  padding: 10px 20px;
+  background: none;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.closeModalBtn:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+.localNotification {
+  background-color: rgba(0, 128, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: center;
+  animation: fade-in-out 3s forwards;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.formRow {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .locationsSection {
+    flex-direction: column;
+    display: flex;
+    gap: 24px;
+    margin: 0 auto;
+  }
+
+  .sectionImg {
+    width: 100%;
+  }
+
+  .locationBox {
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+  .imageWrapper {
+    margin: 0;
+    width: 70%;
+  }
+
+  .desc {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .modalContent {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  .modalLeft {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .modalRight {
+    width: 100%;
+    padding: 20px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .reservationForm label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .reservationForm input,
+  .reservationForm textarea,
+  .reservationForm select {
+    width: 100%;
+    max-width: 100%;
+    height: 48px;
+    margin-bottom: 10px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .contactsTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .contacts {
+    text-align: center;
+    color: #a7a7a7;
+    font-size: 16px;
+  }
+
+  .closeModalBtn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .prevBtn,
+  .nextBtn {
+    font-size: 36px;
+  }
+}

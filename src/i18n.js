@@ -94,6 +94,10 @@ const resources = {
         phone: "Phone",
         email: "Email",
       },
+      aboutus: {
+        about: 'About us',
+        desc: 'Do you know what Dolce Amaro means? The literal translation is "Sweet-bitter," but we aim to encapsulate the entire diversity of flavors, aromas, and visuals that quality food offers in this phrase. The satisfaction of a well-prepared dish, served with style and personal attention, our specially selected wines, and, of course, our uniquely delicious desserts—this is the philosophy of Dolce Amaro.'
+      }
     },
   },
   bg: {
@@ -188,7 +192,10 @@ const resources = {
         phone: "Телефон",
         email: "Имейл",
       },
-
+      aboutus: {
+        about: 'За Нас',
+        desc: 'Знаете ли какво означава Dolce Amaro? Буквалният превод е „Сладко-горчиво“, но ние искаме да съберем в този израз цялото многообразие от вкусове, аромати и визии, които дава качествената храна. Задоволството от добре приготвеното ястие, поднесено със стил и лично отношение, специално селектираните вина и разбира се, уникално вкусните ни десерти – това е философията на Dolce Amaro.'
+      }
     },
   },
 };
