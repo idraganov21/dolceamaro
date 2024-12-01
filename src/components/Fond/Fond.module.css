@@ -33,6 +33,18 @@
       height: 100%;
     }
 
+    .images {
+        flex-direction: column;
+    }
+
+    .an1 {
+        width: 200px;
+      }
+
+      .an2 {
+        width: 200px;
+      }
+
     .sectionBox {
         flex-direction: column;
     }

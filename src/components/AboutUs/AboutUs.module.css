@@ -334,6 +334,7 @@
     margin: 0 auto;
   }
 
+
   .sectionImg {
     width: 100%;
   }
@@ -341,6 +342,7 @@
   .locationBox {
     margin: 0 auto;
     margin-bottom: 60px;
+    height: auto;
   }
 
   .imageWrapper {
