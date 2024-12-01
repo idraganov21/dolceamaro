@@ -11,6 +11,7 @@ import BottomBar from './components/Footer/BottomBar';
 import scroll from '/scroll.svg';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import PostDetail from './components/Offers/PostDetail';
+import './i18n'
 
 function App() {
     const [showScrollToTop, setShowScrollToTop] = useState(false);

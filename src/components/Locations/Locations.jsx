@@ -4,9 +4,12 @@ import locationImage from '/locationn.jpg';
 import loc from '/loc.png';
 import img1 from '/garden.png';
 import img2 from '/seaport.png';
+import { useTranslation } from 'react-i18next';
+
 
 const Locations = () => {
   const [showModal, setShowModal] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const openModal = () => {
     setShowModal(true);
@@ -25,14 +28,14 @@ const Locations = () => {
         <div className={styles.locationContent}>
           <div className={styles.order}>
             <img src={loc} alt="dolce amaro" className={styles.loc} />
-            <p className={styles.orderTitle}>Доставка</p>
+            <p className={styles.orderTitle}>{t('locations.delivery')}</p>
           </div>
           <p className={styles.desc}>
-            ⭐ Ресторанти Dolce Amaro доставят <br />
-            прясно приготвена и изключително вкусна храна до дома или офиса в град Варна!
+            ⭐ {t('locations.deliveryftext')} <br />
+            {t('locations.deliverystext')}
           </p>
           <button className={styles.btn} onClick={openModal}>
-            Поръчай
+            {t('locations.order')}
           </button>
         </div>
       </div>
@@ -40,13 +43,13 @@ const Locations = () => {
       {showModal && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <p className={styles.modalTitle}>Доставки до дома и офиса!</p>
+            <p className={styles.modalTitle}>{t('locations.homeorder')}</p>
             <div className={styles.modalImages}>
               <div className={styles.modalItem}>
                 <img src={img1} alt="image1" className={styles.modalImage} />
                 <div>
                   <button className={styles.btn} onClick={() => window.location.href = 'https://www.dolceamaro.bg/доставка'}>
-                    Поръчай
+                    {t('locations.order')}
                   </button>
                 </div>
               </div>
@@ -54,12 +57,13 @@ const Locations = () => {
                 <img src={img2} alt="image2" className={styles.modalImage} />
                 <div>
                   <button className={styles.btn} onClick={() => window.location.href = '#'}>
-                    Поръчай
+                    {t('locations.order')}
                   </button>
                 </div>
               </div>
             </div>
-            <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button>
+            <button className={styles.closeModalBtn} onClick={closeModal}>{t('locations.close')}
+            </button>
           </div>
         </div>
       )}

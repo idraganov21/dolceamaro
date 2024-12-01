@@ -6,11 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import img1 from '/garden.png';
 import img2 from '/seaport.png';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [isLunchMenuVisible, setIsLunchMenuVisible] = useState(false);
+    const { t, i18n } = useTranslation();
+
+    const toggleLanguage = () => {
+        if (i18n.language === 'bg') {
+            i18n.changeLanguage('en');
+        } else {
+            i18n.changeLanguage('bg');
+        }
+    };
 
     const toggleLunchMenu = () => {
         setIsLunchMenuVisible(!isLunchMenuVisible);
@@ -36,24 +46,43 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                 <div className={styles.navContent}>
                     <div className={styles.leftSection}>
                         <div className={styles.desktopMenu}>
-                            <a onClick={scrollToContacts} className={styles.navItem}>Контакти</a>
+                            <a onClick={scrollToContacts} className={styles.navItem}>{t('navbar.contacts')}</a>
                             <div className={styles.navItemWrapper}>
                                 <a
                                     onClick={toggleLunchMenu}
                                     className={styles.navItem}>
-                                    Обедно меню
+                                    {t('navbar.lunchMenu')}
                                 </a>
                                 {isLunchMenuVisible && (
                                     <div className={styles.dropdownMenu}>
                                         <a href="https://seaport.dolceamaro.bg" className={styles.dropdownItem}>
-                                            Обедно меню на Морска гара
+                                            {t('navbar.seaportLunch')}
                                         </a>
                                         <a href="https://garden.dolceamaro.bg" className={styles.dropdownItem}>
-                                            Обедно меню на Морска градина
+                                            {t('navbar.gardenLunch')}
                                         </a>
                                     </div>
                                 )}
                             </div>
+                        </div>
+                        <div className={styles.languageSwitcher}>
+                            {i18n.language === 'bg' ? (
+                                <button
+                                    onClick={toggleLanguage}
+                                    className={styles.languageButton}
+                                    aria-label="Switch to English"
+                                >
+                                    🇬🇧
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={toggleLanguage}
+                                    className={styles.languageButton}
+                                    aria-label="Switch to Bulgarian"
+                                >
+                                    🇧🇬
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className={styles.middleSection}>
@@ -63,10 +92,10 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
                         <div className={styles.desktopMenu}>
                             <div className={styles.orderFood}>
                                 <a onClick={openModal} className={styles.navItem}>
-                                    <FontAwesomeIcon icon={faTruck} className={styles.icon} /> Поръчай храна
+                                    <FontAwesomeIcon icon={faTruck} className={styles.icon} /> {t('navbar.orderFood')}
                                 </a>
                             </div>
-                            <a onClick={scrollToReservation} className={styles.navItem}>Резервирай</a>
+                            <a onClick={scrollToReservation} className={styles.navItem}>{t('navbar.res')}</a>
                             {showModal && (
                                 <div className={styles.modalOverlay} onClick={closeModal}>
                                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -140,7 +169,7 @@ const Navbar = ({ scrollToReservation, scrollToOrder, scrollToContacts }) => {
             </nav>
 
             <div className={styles.sloganContainer}>
-                <p className={styles.slogan}>Добрият вкус е винаги на мода!</p>
+                <p className={styles.slogan}>{t('navbar.intro')}</p>
             </div>
         </header>
 
