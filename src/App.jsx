@@ -12,6 +12,7 @@ import scroll from '/scroll.svg';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import PostDetail from './components/Offers/PostDetail';
 import './i18n'
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
     const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -77,6 +78,7 @@ function App() {
                             <Offers />
                             <Gift />
                             <Kids />
+                            <AboutUs />
                             <div ref={contactRef}>
                                 <Footer />
                             </div>
