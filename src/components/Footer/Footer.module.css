@@ -53,6 +53,11 @@
   align-items: center;
 }
 
+.termsLink {
+  text-decoration: none;
+  color: #fff;
+}
+
 .contactInfo,
 .nearbyAttractions {
   display: flex;

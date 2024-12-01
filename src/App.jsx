@@ -13,6 +13,8 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import PostDetail from './components/Offers/PostDetail';
 import './i18n'
 import AboutUs from './components/AboutUs/AboutUs';
+import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
+import PrivateData from './components/TermsAndConditions/PrivateData';
 
 function App() {
     const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -52,7 +54,7 @@ function App() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const isPostDetailPage = location.pathname.startsWith('/post/');
+    const isPostDetailPage = location.pathname.startsWith('/post/') || location.pathname.startsWith('/terms') || location.pathname.startsWith('/privatedata')
 
     return (
         <>
@@ -65,7 +67,7 @@ function App() {
             )}
             <Routes>
                 {isPostDetailPage ? (
-                    <Route path="/post/:id" element={<PostDetail onBack={() => navigate(-1)} />} />
+            <><Route path="/terms" element={<TermsAndConditions />} /><Route path="/privatedata" element={<PrivateData />} /><Route path="/post/:id" element={<PostDetail onBack={() => navigate(-1)} />} /></>
                 ) : (
                     <Route path="/" element={
                         <div className="main-content">
