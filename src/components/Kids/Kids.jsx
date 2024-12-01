@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import styles from './Kids.module.css';
 import { useForm, ValidationError } from '@formspree/react';
 import kids from '/kids.jpg';
+import { useTranslation } from 'react-i18next';
+
 
 const Kids = () => {
     const [showModal, setShowModal] = useState(false);
     const [state, handleSubmit] = useForm("xeoqazdb");
     const [showGallery, setShowGallery] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const { t, i18n } = useTranslation();
 
     const images = ['/kids1.jpg', '/kids2.jpg', '/kids3.jpg', '/kids4.jpg', '/kids5.jpg', '/kids6.jpg', '/kids7.jpg', '/kids8.jpg'];
 
@@ -41,21 +44,21 @@ const Kids = () => {
             <div className={styles.locationBox}>
                 <div className={styles.locationContent}>
                     <div className={styles.order}>
-                        <p className={styles.orderTitle}>Детски кът</p>
+                        <p className={styles.orderTitle}>{t('kids.playground')}</p>
                     </div>
                     <p className={styles.desc}>
 
-                        Подарете на детето си страхотно преживяване и емоции: <br />
+                        {t('kids.descone')} <br />
 
-                        ✅ Оборудван детски кът <br /> ✅ Аниматори за децата <br /> ✅ Детски събития
+                        ✅ {t('kids.desctwo')} <br /> ✅ {t('kids.descthree')} <br /> ✅ {t('kids.descfour')}
                     </p>
                     <div className={styles.btns}>
                         <button className={styles.btn} onClick={openGallery}>
-                            Галерия
+                            {t('global.gallery')}
                         </button>
-                        <button className={styles.btn} onClick={openModal}>
+                        {/* <button className={styles.btn} onClick={openModal}>
                             Резервирай
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
@@ -63,7 +66,7 @@ const Kids = () => {
             {showGallery && (
                 <div className={styles.modalOverlay} onClick={closeModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                    {/* <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button> */}
+                        {/* <button className={styles.closeModalBtn} onClick={closeModal}>Затвори</button> */}
                         <div className={styles.galleryContent}>
                             <button className={styles.prevBtn} onClick={prevImage}>‹</button>
                             <img src={images[currentImageIndex]} alt="Gallery" className={styles.galleryImage} />

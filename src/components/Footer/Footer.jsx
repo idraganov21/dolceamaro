@@ -2,26 +2,29 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import { FaWalking } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerUpper}>
         {/* Nearby Attractions */}
         <div className={styles.nearbyAttractions}>
-          <h4>Забележителности наблизо</h4>
+          <h4>{t('footer.title')}</h4>
           <div>
-            <strong>Dolce Amaro Garden:</strong>
+            <strong>{t('footer.garden')}:</strong>
             <ul>
-              <li>Гардън Зоологическа градина <span>10 мин <FaWalking /></span></li>
-              <li>Спортна зала <span>10 мин <FaWalking /></span></li>
+              <li>{t('footer.locations.zoo')}: {t('footer.time')} <FaWalking /></li>
+              <li>{t('footer.locations.sportsHall')}: {t('footer.time')} <FaWalking /></li>
             </ul>
           </div>
           <div>
-            <strong>Dolce Amaro Seaport:</strong>
+            <strong>{t('footer.seaport')}:</strong>
             <ul>
-              <li>Морска Градина <span>10 мин <FaWalking /></span></li>
-              <li>Римски Терми <span>10 мин <FaWalking /></span></li>
+              <li>{t('footer.locations.seaGarden')}: {t('footer.time')} <FaWalking /></li>
+              <li>{t('footer.locations.romanBaths')}: {t('footer.time')} <FaWalking /></li>
             </ul>
           </div>
         </div>
@@ -43,20 +46,20 @@ const Footer = () => {
         {/* Contacts */}
         <div className={styles.contactInfo}>
           <div>
-            <h4>Контакти</h4>
-            <strong>Dolce Amaro Garden:</strong>
+            <h4>{t('footer.contacts')}</h4>
+            <strong>{t('footer.garden')}:</strong>
             <ul>
-              <li>Телефон: +359 123 456 789</li>
-              <li>Имейл: garden@dolceamaro.bg</li>
-              <li>Работно време: 10:00 - 22:00</li>
+              <li>{t('footer.phone')}: +359 123 456 789</li>
+              <li>{t('footer.email')}: garden@dolceamaro.bg</li>
+              <li>{t('footer.workingHours')}: 10:00 - 22:00</li>
             </ul>
           </div>
           <div>
-            <strong>Dolce Amaro Seaport:</strong>
+            <strong>{t('footer.seaport')}:</strong>
             <ul>
-              <li>Телефон: +359 987 654 321</li>
-              <li>Имейл: seaport@dolceamaro.bg</li>
-              <li>Работно време: 10:00 - 23:00</li>
+              <li>{t('footer.phone')}: +359 987 654 321</li>
+              <li>{t('footer.email')}: seaport@dolceamaro.bg</li>
+              <li>{t('footer.workingHours')}: 10:00 - 23:00</li>
             </ul>
           </div>
         </div>

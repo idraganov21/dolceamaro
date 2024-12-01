@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Offers.module.css';
+import { useTranslation } from 'react-i18next';
 
 const Offers = () => {
     const [offers, setOffers] = useState([]);
     const [startIndex, setStartIndex] = useState(0);
     const navigate = useNavigate();
     const itemsToShow = 3;
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         const fetchOffers = async () => {
@@ -42,7 +44,7 @@ const Offers = () => {
         <section className={styles.offersSection}>
             <div className={styles.titleContainer}>
                 <div className={styles.line}></div>
-                <h2>Новини</h2>
+                <h2>{t('offers.news')}</h2>
                 <div className={styles.line}></div>
             </div>
             <div className={styles.carouselContainer}>
@@ -59,7 +61,7 @@ const Offers = () => {
                                     onClick={() => navigate(`/post/${offer.id}`)}
                                     className={styles.offerButton}
                                 >
-                                    Виж повече
+                                    {t('global.seemore')}
                                 </button>
                             </div>
                         );
