@@ -37,7 +37,7 @@ const Reservations = () => {
     }
 
     return (
-        <section className={styles.locationsSection}>
+        <section key={i18n.language} className={styles.locationsSection}>
             <div className={styles.fLocationBox}>
                 <div className={styles.imageWrapper}>
                     <img src={seaport} className={styles.sectionImg} alt="Dolce Amaro" />

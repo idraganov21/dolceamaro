@@ -22,6 +22,7 @@ const resources = {
         back: "Go back",
         seemore: "See more",
         gallery: "Gallery",
+        fondTitle: "European Regional Development Fund"
       },
       modal: {
         bookTable: "Book a Table",
@@ -125,6 +126,7 @@ const resources = {
         back: "Назад",
         seemore: "Виж повече",
         gallery: "Галерия",
+        fondTitle: "Европейски фонд за регионално развитие"
       },
       modal: {
         bookTable: "Резервирай маса",
